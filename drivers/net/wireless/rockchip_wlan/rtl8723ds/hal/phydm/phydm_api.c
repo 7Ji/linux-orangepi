@@ -365,7 +365,7 @@ void phydm_config_trx_path_v2(void *dm_void, char input[][16], u32 *_used,
 		return;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_HEX, &val[i]);
 			input_idx++;
 		}
@@ -424,7 +424,7 @@ void phydm_config_trx_path_v1(void *dm_void, char input[][16], u32 *_used,
 		return;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_HEX, &val[i]);
 			input_idx++;
 		}
@@ -1863,7 +1863,7 @@ void phydm_nbi_debug(void *dm_void, char input[][16], u32 *_used, char *output,
 	else
 		idx_lmt = 5;
 	for (i = 0; i < idx_lmt; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &val[i]);
 			input_idx++;
 		}
@@ -1955,7 +1955,7 @@ void phydm_csi_debug(void *dm_void, char input[][16], u32 *_used, char *output,
 		idx_lmt = 5;
 
 	for (i = 0; i < idx_lmt; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &val[i]);
 			input_idx++;
 		}

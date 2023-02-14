@@ -446,7 +446,7 @@ void phydm_dtp_debug(void *dm_void, char input[][16], u32 *_used, char *output,
 			 "Set DTP threhosld: {1} {TH[0]} {TH[1]} {TH[2]}\n");
 	} else {
 		for (i = 0; i < 3; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 		}
 		if (var1[0] == 1) {

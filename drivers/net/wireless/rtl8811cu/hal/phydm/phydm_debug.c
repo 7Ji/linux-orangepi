@@ -2239,7 +2239,7 @@ void phydm_debug_trace(void *dm_void, char input[][16], u32 *_used,
 	u8 i;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &dm_value[i]);
 	}
 
@@ -2789,7 +2789,7 @@ void phydm_per_tone_evm(void *dm_void, char input[][16], u32 *_used,
 	}
 
 	for (i = 0; i < 4; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 	}
 	avg_num = var1[0];
@@ -2992,7 +2992,7 @@ void phydm_api_adjust(void *dm_void, char input[][16], u32 *_used, char *output,
 	}
 
 	for (i = 0; i < 4; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 	}
 
@@ -3237,7 +3237,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_ANTDIV:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 
 				/*PDM_SNPF((output+used, out_len-used, "new SET, PATHDIV_var[%d]= (( %d ))\n", i, var1[i]));*/
@@ -3260,7 +3260,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_PATHDIV:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 
 				/*PDM_SNPF((output+used, out_len-used, "new SET, PATHDIV_var[%d]= (( %d ))\n", i, var1[i]));*/
@@ -3288,7 +3288,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_FW_DEBUG:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -3302,7 +3302,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_SUPPORT_ABILITY:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -3315,7 +3315,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_SMART_ANT:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 				input_idx++;
 			}
@@ -3353,7 +3353,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 
 	case PHYDM_SET_TXAGC: {
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 				input_idx++;
 			}
@@ -3381,7 +3381,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_TRX_PATH:
 
 		for (i = 0; i < 4; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 		}
 #if (RTL8822B_SUPPORT == 1 || RTL8197F_SUPPORT == 1 || RTL8192F_SUPPORT == 1) /*jj add 20170822*/
@@ -3483,7 +3483,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_NBI_EN:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -3499,7 +3499,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_CSI_MASK_EN:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -3517,7 +3517,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 		u32 var[4] = {0};
 
 		for (i = 0; i < 4; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var[i]);
 				input_idx++;
 			}
@@ -3603,7 +3603,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_H2C:
 
 		for (i = 0; i < 8; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 				input_idx++;
 			}
@@ -3617,7 +3617,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_ANT_SWITCH:
 
 		for (i = 0; i < 8; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -3638,7 +3638,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 
 #ifdef CONFIG_ADAPTIVE_SOML
 		for (i = 0; i < 8; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -3704,7 +3704,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_ADAPTIVITY_DEBUG:
 
 		for (i = 0; i < 5; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 				input_idx++;
 			}

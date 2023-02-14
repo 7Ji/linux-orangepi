@@ -291,7 +291,7 @@ void phydm_fahm_dbg(void *dm_void, char input[][16], u32 *_used, char *output,
 	u32 i;
 
 	for (i = 0; i < 2; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 	}
 
@@ -952,7 +952,7 @@ void phydm_nhm_dbg(void *dm_void, char input[][16], u32 *_used, char *output,
 		ccx->nhm_manual_ctrl = 1;
 
 		for (i = 1; i < 7; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL,
 					     &var1[i]);
 			}
@@ -1376,7 +1376,7 @@ void phydm_clm_dbg(void *dm_void, char input[][16], u32 *_used, char *output,
 	u32 i;
 
 	for (i = 0; i < 4; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 	}
 

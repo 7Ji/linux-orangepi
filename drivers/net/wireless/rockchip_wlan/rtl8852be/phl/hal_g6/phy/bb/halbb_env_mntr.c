@@ -820,7 +820,7 @@ void halbb_nhm_dbg(struct bb_info *bb, char input[][16], u32 *_used,
 		env->ccx_manual_ctrl = true;
 
 		for (i = 1; i < 9; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				HALBB_SCAN(input[i + 1], DCMD_DECIMAL, &var[i]);
 		}
 
@@ -989,7 +989,7 @@ void halbb_clm_dbg(struct bb_info *bb, char input[][16], u32 *_used,
 	u8 i = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			HALBB_SCAN(input[i + 1], DCMD_DECIMAL, &var[i]);
 	}
 
@@ -1376,7 +1376,7 @@ void halbb_ifs_clm_dbg(struct bb_info *bb, char input[][16], u32 *_used,
 	u8 i = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			HALBB_SCAN(input[i + 1], DCMD_DECIMAL, &var[i]);
 	}
 
@@ -1994,7 +1994,7 @@ void halbb_fahm_dbg(struct bb_info *bb, char input[][16], u32 *_used,
 		env->ccx_manual_ctrl = true;
 
 		for (i = 1; i < 9; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				HALBB_SCAN(input[i + 1], DCMD_DECIMAL, &var[i]);
 		}
 
@@ -2151,7 +2151,7 @@ void halbb_edcca_clm_dbg(struct bb_info *bb, char input[][16], u32 *_used,
 	u8 i = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			HALBB_SCAN(input[i + 1], DCMD_DECIMAL, &var[i]);
 	}
 
@@ -2775,7 +2775,7 @@ void halbb_env_mntr_dbg(struct bb_info *bb, char input[][16], u32 *_used,
 	bool is_show_rpt = false;
 
 	for (i = 0; i < 2; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			HALBB_SCAN(input[i + 1], DCMD_DECIMAL, &var[i]);
 	}
 

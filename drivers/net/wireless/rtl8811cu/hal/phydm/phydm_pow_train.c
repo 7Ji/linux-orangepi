@@ -199,7 +199,7 @@ void phydm_pow_train_debug(
 
 	} else {
 		for (i = 0; i < 10; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 		}
 

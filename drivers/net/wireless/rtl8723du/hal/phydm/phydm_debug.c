@@ -1938,7 +1938,7 @@ phydm_cmd_parser(
 			u32 var[4] = {0};
 
 			for (i = 0; i < 4; i++) {
-				if (input[i + 1]) {
+				if (*input[i + 1]) {
 					PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var[i]);
 					input_idx++;
 				}
@@ -2106,7 +2106,7 @@ phydm_cmd_parser(
 
 #ifdef CONFIG_DYNAMIC_RX_PATH
 		for (i = 0; i < 8; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}
@@ -2125,7 +2125,7 @@ phydm_cmd_parser(
 
 #ifdef CONFIG_ADAPTIVE_SOML
 		for (i = 0; i < 8; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 				input_idx++;
 			}

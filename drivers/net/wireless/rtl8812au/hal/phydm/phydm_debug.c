@@ -2861,7 +2861,7 @@ void phydm_set_txagc_dbg(void *dm_void, char input[][16], u32 *_used,
 	u8 i = 0, input_idx = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 			input_idx++;
 		}
@@ -2903,7 +2903,7 @@ void phydm_debug_trace(void *dm_void, char input[][16], u32 *_used,
 	u8 i;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &val[i]);
 	}
 	comp = dm->debug_components;
@@ -3060,7 +3060,7 @@ void phydm_fw_debug_trace(void *dm_void, char input[][16], u32 *_used,
 	u32 comp = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &val[i]);
 			input_idx++;
 		}
@@ -3430,7 +3430,7 @@ void phydm_enable_big_jump(void *dm_void, char input[][16], u32 *_used,
 		return;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_HEX, &dm_value[i]);
 			input_idx++;
 		}
@@ -3467,7 +3467,7 @@ void phydm_show_rx_rate(void *dm_void, char input[][16], u32 *_used,
 	u8 i, input_idx = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 			input_idx++;
 		}
@@ -3560,7 +3560,7 @@ void phydm_per_tone_evm(void *dm_void, char input[][16], u32 *_used,
 	}
 
 	for (i = 0; i < 4; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 	}
 
@@ -3782,7 +3782,7 @@ void phydm_bw_ch_adjust(void *dm_void, char input[][16],
 	}
 
 	for (i = 0; i < 4; i++) {
-		if (input[i + 1])
+		if (*input[i + 1])
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 	}
 
@@ -3814,7 +3814,7 @@ void phydm_ext_rf_element_ctrl(void *dm_void, char input[][16], u32 *_used,
 	u8 i = 0, input_idx = 0;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &val[i]);
 			input_idx++;
 		}

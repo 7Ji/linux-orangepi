@@ -221,7 +221,7 @@ phydm_cumitek_smt_ant_debug(
 
 
 		for (i = 1; i < 4; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &dm_value[i]);
 		}
 
@@ -234,7 +234,7 @@ phydm_cumitek_smt_ant_debug(
 		u8 table_path_b[8] = {0};
 
 		for (i = 1; i < 4; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &dm_value[i]);
 		}
 

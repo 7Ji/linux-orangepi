@@ -949,7 +949,7 @@ void phydm_dtp_debug(void *dm_void, char input[][16], u32 *_used, char *output,
 
 	} else {
 		for (i = 0; i < 3; i++) {
-			if (input[i + 1]) {
+			if (*input[i + 1]) {
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 			}
 		}

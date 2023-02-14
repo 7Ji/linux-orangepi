@@ -280,7 +280,7 @@ phydm_fahm_dbg(
 	u32		i;
 
 	for (i = 0; i < 2; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 		}
 	}
@@ -1126,7 +1126,7 @@ phydm_clm_dbg(
 	u32		i;
 
 	for (i = 0; i < 2; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_DECIMAL, &var1[i]);
 		}
 	}

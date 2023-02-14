@@ -4020,7 +4020,7 @@ void phydm_enable_big_jump(void *dm_void, char input[][16], u32 *_used,
 		return;
 
 	for (i = 0; i < 5; i++) {
-		if (input[i + 1]) {
+		if (*input[i + 1]) {
 			PHYDM_SSCANF(input[i + 1], DCMD_HEX, &dm_value[i]);
 			input_idx++;
 		}
@@ -4994,7 +4994,7 @@ void phydm_spur_detect_dbg(void *dm_void, char input[][16], u32 *_used,
 			 "{If CSI always ON (Mode 2 or 4) -> CSI wgt manual(0~7)}\n");
 	} else {
 		for (i = 0; i < 10; i++) {
-			if (input[i + 1])
+			if (*input[i + 1])
 				PHYDM_SSCANF(input[i + 1], DCMD_HEX, &var1[i]);
 		}
 
