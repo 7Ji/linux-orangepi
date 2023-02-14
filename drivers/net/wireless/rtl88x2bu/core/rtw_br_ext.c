@@ -108,6 +108,7 @@ static __inline__ int __nat25_add_pppoe_tag(struct sk_buff *skb, struct pppoe_ta
 	int data_len;
 
 	data_len = tag->tag_len + TAG_HDR_LEN;
+	if (data_len > 40) data_len = 40;
 	if (skb_tailroom(skb) < data_len) {
 		_DEBUG_ERR("skb_tailroom() failed in add SID tag!\n");
 		return -1;
