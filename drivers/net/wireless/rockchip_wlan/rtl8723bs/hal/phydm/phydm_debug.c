@@ -2682,7 +2682,7 @@ phydm_cmd_parser(
 
 		phydm_bb_debug_info(p_dm, &used, output, &out_len);
 
-		if (p_dm->support_ic_type & ODM_RTL8822B && input[1]) {
+		if (p_dm->support_ic_type & ODM_RTL8822B && *input[1]) {
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 			odm_set_bb_reg(p_dm, 0x1988, 0x003fff00, var1[0]);
 			value32 = odm_get_bb_reg(p_dm, 0xf84, MASKDWORD);
