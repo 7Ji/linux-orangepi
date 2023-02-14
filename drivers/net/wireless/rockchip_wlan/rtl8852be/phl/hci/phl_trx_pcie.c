@@ -1370,8 +1370,8 @@ phl_release_target_rx_buf(struct phl_info_t *phl_info, void *r, u8 ch,
 	if(rx_buf && (type == RTW_RX_TYPE_WIFI))
 		_phl_alloc_dynamic_rxbuf_pcie(rx_buf, phl_info);
 #endif
-	if (rx_buf_ring + ch != NULL && rx_buf != NULL) {
-		enqueue_idle_rx_buf(phl_info, rx_buf_ring + ch, rx_buf);
+	if (&rx_buf_ring[ch] != NULL && rx_buf != NULL) {
+		enqueue_idle_rx_buf(phl_info, &rx_buf_ring[ch], rx_buf);
 		pstatus = RTW_PHL_STATUS_SUCCESS;
 	}
 
