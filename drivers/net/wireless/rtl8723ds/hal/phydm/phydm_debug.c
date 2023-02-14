@@ -2114,7 +2114,7 @@ phydm_cmd_parser(
 	{
 		u1Byte	type = 0;
 		
-		if (input[1]) {
+		if (*input[1]) {
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 			type = (u1Byte)var1[0];
 		}
@@ -2129,7 +2129,7 @@ phydm_cmd_parser(
 	case PHYDM_MU_MIMO:
 #if (RTL8822B_SUPPORT == 1)
 		
-		if (input[1])
+		if (*input[1])
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 		else
 			var1[0] = 0;
@@ -2198,7 +2198,7 @@ phydm_cmd_parser(
 	case PHYDM_BIG_JUMP:
 	{
 #if (RTL8822B_SUPPORT == 1)
-		if (input[1]) {
+		if (*input[1]) {
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 			phydm_EnableBigJump(pDM_Odm, (BOOLEAN)(var1[0]));
 		} else
@@ -2218,7 +2218,7 @@ phydm_cmd_parser(
 	{
 		u1Byte	rate_idx;
 	
-		if (input[1])
+		if (*input[1])
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 		if (var1[0] == 1)

@@ -3732,7 +3732,7 @@ void phydm_dump_reg(void *dm_void, char input[][16], u32 *_used, char *output,
 	u32 out_len = *_out_len;
 	u32 addr = 0;
 
-	if (input[1])
+	if (*input[1])
 		PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 	if ((strcmp(input[1], help) == 0)) {
@@ -4962,7 +4962,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 		break;
 
 	case PHYDM_DIS_HTSTF_CONTROL: {
-		if (input[1])
+		if (*input[1])
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 		if (var1[0] == 1) {

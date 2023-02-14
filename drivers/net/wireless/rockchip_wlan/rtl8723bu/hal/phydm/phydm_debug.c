@@ -1679,7 +1679,7 @@ phydm_cmd_parser(
 	{
 		u1Byte	type = 0;
 		
-		if (input[1]) {
+		if (*input[1]) {
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 			type = (u1Byte)var1[0];
 		}

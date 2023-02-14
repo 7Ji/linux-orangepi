@@ -2537,7 +2537,7 @@ phydm_cmd_parser(
 	{
 		u8	type = 0;
 
-		if (input[1]) {
+		if (*input[1]) {
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 			type = (u8)var1[0];
 		}
@@ -2553,7 +2553,7 @@ phydm_cmd_parser(
 	{
 #if (RTL8822B_SUPPORT == 1)
 		if (p_dm->support_ic_type & ODM_RTL8822B) {
-			if (input[1]) {
+			if (*input[1]) {
 				PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 				phydm_enable_big_jump(p_dm, (boolean)(var1[0]));
 			} else
@@ -2575,7 +2575,7 @@ phydm_cmd_parser(
 		if (p_dm->support_ic_type & PHYDM_IC_SUPPORT_MU_BFEE) {
 			u8	rate_idx;
 
-			if (input[1])
+			if (*input[1])
 				PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 			if (var1[0] == 1)
@@ -2901,7 +2901,7 @@ phydm_cmd_parser(
 		
 	case PHYDM_DIS_HTSTF_CONTROL:
 		{
-			if (input[1])
+			if (*input[1])
 				PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 			if (var1[0] == 1) {
@@ -2971,7 +2971,7 @@ phydm_cmd_parser(
 
 	case PHYDM_DIS_RXHP_CTR:
 		{
-			if (input[1])
+			if (*input[1])
 				PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 			if (var1[0] == 1) {

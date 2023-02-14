@@ -2638,7 +2638,7 @@ void phydm_dump_reg(void *dm_void, char input[][16], u32 *_used, char *output,
 	u32 used = *_used;
 	u32 out_len = *_out_len;
 
-	if (input[1])
+	if (*input[1])
 		PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 	PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
@@ -3435,7 +3435,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	case PHYDM_BIG_JUMP: {
 #if (RTL8822B_SUPPORT == 1)
 		if (dm->support_ic_type & ODM_RTL8822B) {
-			if (input[1]) {
+			if (*input[1]) {
 				PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 				phydm_enable_big_jump(dm, (boolean)(var1[0]));
 			} else {
@@ -3462,7 +3462,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 		if ((dm->support_ic_type & PHYDM_IC_SUPPORT_MU_BFEE) == 0)
 			break;
 
-		if (input[1])
+		if (*input[1])
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 		if (var1[0] == 1) {
@@ -3681,7 +3681,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	} break;
 
 	case PHYDM_DIS_HTSTF_CONTROL: {
-		if (input[1])
+		if (*input[1])
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 		if (var1[0] == 1) {
@@ -3733,7 +3733,7 @@ void phydm_cmd_parser(struct dm_struct *dm, char input[][MAX_ARGV],
 	}
 
 	case PHYDM_DIS_RXHP_CTR: {
-		if (input[1])
+		if (*input[1])
 			PHYDM_SSCANF(input[1], DCMD_DECIMAL, &var1[0]);
 
 		if (var1[0] == 1) {
