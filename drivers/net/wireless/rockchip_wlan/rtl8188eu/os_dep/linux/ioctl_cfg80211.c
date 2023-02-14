@@ -9770,7 +9770,7 @@ void rtw_cfg80211_external_auth_status(struct wiphy *wiphy, struct net_device *d
 		psta->state |= WIFI_FW_AUTH_SUCCESS;
 		psta->expire_to = padapter->stapriv.assoc_to;
 
-		if (params->pmkid != NULL) {
+		if (params) {
 			/* RTW_INFO_DUMP("PMKID:", params->pmkid, PMKID_LEN); */
 			_rtw_set_pmksa(dev, params->bssid, params->pmkid);
 		}
